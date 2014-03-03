@@ -1,0 +1,20 @@
+# Ask the user to select a picture file.
+myfile=pickAFile()
+picture=makePicture(myfile)
+
+
+# Gets the width and height of the picture selected.
+width=getWidth(picture)
+height=getHeight(picture)
+
+# Creates an empty image.
+canvas=makeEmptyPicture(width,height)
+
+# Takes the first half of the picture and mirrors it, by getting the specfied pixels.
+for x in range(0, width/2):
+    for y in range(0, height):
+      color=getColor(getPixel(picture, x, y))
+      setColor(getPixel(canvas, x, y), color)
+      setColor(getPixel(canvas, width-x-1, y), color)
+show(picture)
+show(canvas)
